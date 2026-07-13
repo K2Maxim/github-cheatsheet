@@ -17,7 +17,7 @@
 
 - Пропишем свойство HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\line_norm\command:
 
-      "C:\Users\maxim.tolstikov\source\repos\LineNormalizer\LineNormalizer\bin\Debug\net48\LineNormalizer.exe" "%1"
+      "<абсолютный путь к файлу LineNormalizer.exe>\LineNormalizer.exe" "%1"
 
 - После этого при щелчке правой кнопки на папку в контекстом меню появится пункт "Нормализация строк", который делает окончания строк всех файлов в папке одинаковыми (Lf).
 
