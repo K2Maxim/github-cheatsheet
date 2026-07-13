@@ -2,6 +2,25 @@
 
 # Правила организации репозиториев
 
+## Окончания строк
+Соблюдаем порядок в окончаниях строк.
+Если проект можно использовать только на Windows (C#, VBA, VB.NET, F#), используем окончание строк Windows (CrLf - "\r\n").
+Во всех остальных случаях используем окончание строк Linux (Lf - "\n").
+
+Для помощи в соблюдении порядка создан проект LineNormalizer.
+Чтобы не мучаться с ручным запуском нормализатора окончаний из консоли, добавим запись в реестр.
+- Ветка: HKEY_CLASSES_ROOT\Directory\shell (если нет админа, то HKEY_CURRENT_USER\Software\Classes\Directory\shell)
+- Добавим подраздел, например: HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\line_norm\command
+- Пропишем свойство HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\line_norm:
+
+      Нормализация строк
+
+- Пропишем свойство HKEY_CURRENT_USER\SOFTWARE\Classes\Directory\shell\line_norm\command:
+
+      "C:\Users\maxim.tolstikov\source\repos\LineNormalizer\LineNormalizer\bin\Debug\net48\LineNormalizer.exe" "%1"
+
+- После этого при щелчке правой кнопки на папку в контекстом меню появится пункт "Нормализация строк", который делает окончания строк всех файлов в папке Lf.
+
 ## Небольшие проекты (менее трех файлов)
 - Должен быть только один репозиторий для проектов с менее чем тремя файлами в проекте.
 - Формат названия репозитория: simple-<язык>-scripts, где <язык> - основной язык программирования в проекте.
